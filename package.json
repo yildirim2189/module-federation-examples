@@ -25,6 +25,7 @@
       "nextjs-sidecar/*",
       "version-discrepancy/*",
       "dashboard-example/*",
+      "module-api/*",
       "redux-reducer-injection/*",
       "angular-universal-ssr/*",
       "advanced-api/dynamic-remotes/*",

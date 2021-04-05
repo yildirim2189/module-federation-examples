@@ -1,0 +1,12 @@
+{
+  "private": true,
+  "scripts": {
+    "start": "lerna run --scope @module-api/* --parallel start",
+    "build": "lerna run --scope @module-api/* build",
+    "serve": "lerna run --scope @module-api/* --parallel serve",
+    "clean": "lerna run --scope @module-api/* --parallel clean"
+  },
+  "devDependencies": {
+    "lerna": "3.22.1"
+  }
+}

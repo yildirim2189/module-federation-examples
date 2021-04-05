@@ -15,10 +15,6 @@ var serverConfig = {
   resolve: {
     extensions: [".js", ".jsx"],
   },
-  optimization: {
-    minimize: false,
-  },
-  mode: "development",
   module: {
     rules: [
       {
@@ -38,7 +34,6 @@ var serverConfig = {
       name: "website2",
       library: { type: "commonjs-module" },
       filename: "container.js",
-
       exposes: {
         "./SharedComponent": "./remoteServer/SharedComponent",
       },

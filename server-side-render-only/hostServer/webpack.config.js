@@ -1,6 +1,7 @@
 var path = require("path");
 const ModuleFederationPlugin = require("webpack").container
   .ModuleFederationPlugin;
+const DashboardPlugin = require("@module-federation/dashboard-plugin");
 
 var serverConfig = {
   entry: ["@babel/polyfill", path.resolve(__dirname, "server.js")],
@@ -11,13 +12,9 @@ var serverConfig = {
     publicPath: "/",
   },
   externals: ["enhanced-resolve"],
-  optimization: {
-    minimize: false,
-  },
   resolve: {
     extensions: [".js", ".jsx"],
   },
-  mode: "development",
   module: {
     rules: [
       {
@@ -35,7 +32,7 @@ var serverConfig = {
   plugins: [
     new ModuleFederationPlugin({
       name: "website1",
-      library: { type: "commonjs-module" },
+      library: { type: "commonjs-module", name: "website1" },
       filename: "container.js",
       remotes: {
         website2: path.resolve(
@@ -45,6 +42,20 @@ var serverConfig = {
       },
       //shared: ["react", "react-dom"],
     }),
+      new DashboardPlugin({
+        publishVersion: require("../package.json").version,
+        filename: "dashboard.json",
+        dashboardURL: "http://localhost:3000/api/update",
+        versionChangeWebhook: "http://cnn.com/",
+        metadata: {
+          clientUrl: "http://localhost:3004",
+          source: {
+            url:
+              "https://github.com/module-federation/module-federation-examples/tree/master/server-side-render-only/hostServer",
+          },
+          remote: "http://localhost:3005/remoteEntry.js",
+        },
+      }),
   ],
 };
 

@@ -9,6 +9,6 @@ Changing "SharedComponent" will affect both servers, without rebuilding Host ser
 
 npm start
 
-http://localhost:3000/ - Host Server
+http://localhost:3004/ - Host Server
 
-http://localhost:3001/ - Remote Server
+http://localhost:3005/ - Remote Server
