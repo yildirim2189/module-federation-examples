@@ -28,7 +28,6 @@ module.exports = {
         newEntrys["shared"] = ["react", "react-dom"];
 
         return newEntrys;
-        return eps;
       };
     }
 
