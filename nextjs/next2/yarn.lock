@@ -66,10 +66,10 @@
   resolved "https://registry.yarnpkg.com/@hapi/hoek/-/hoek-9.2.0.tgz#f3933a44e365864f4dad5db94158106d511e8131"
   integrity sha512-sqKVVVOe5ivCaXDWivIJYVSaEgdQK9ul7a4Kity5Iw7u9+wBAPbX1RMSnLLmp7O4Vzj0WOWwMAJsTL00xwaNug==
 
-"@module-federation/nextjs-mf@1.0.0-beta.4":
-  version "1.0.0-beta.4"
-  resolved "https://registry.yarnpkg.com/@module-federation/nextjs-mf/-/nextjs-mf-1.0.0-beta.4.tgz#1f33173980809f7638ed88b5e98a41198f26abac"
-  integrity sha512-2+lH1lpfF7eIdnxEdwnGbqVw5+IMSljlgw0NXkTzhNeH3NZ577eVeeCwfyJJ4i9Znqeqao3DN7K4Qrv1zgX/pQ==
+"@module-federation/nextjs-mf@1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@module-federation/nextjs-mf/-/nextjs-mf-1.0.0.tgz#0581b33659ddb729656c499abf9ec06c94c5c938"
+  integrity sha512-gv8tmg6brxH9EZK+1mrTEUdc+eUl/r5e0lItNQYH37SApWxVuWO3RjLksyF8GMqnOPxRFBh+XsFB+GCtBtg4/g==
   dependencies:
     webpack-sources "^2.2.0"
 

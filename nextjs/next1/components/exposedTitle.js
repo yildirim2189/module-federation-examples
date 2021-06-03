@@ -1,8 +1,10 @@
 import React, { useEffect } from "react";
+
 const ExportredTitle = () => {
   console.log("---------loading remote component---------");
   useEffect(() => {
     console.log("HOOKS WORKS");
+    window.__webpack_share_scopes__ = __webpack_share_scopes__;
   }, []);
   return (
     <div className="hero">

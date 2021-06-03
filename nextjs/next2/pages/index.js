@@ -3,7 +3,7 @@ import Head from "next/head";
 import dynamic from "next/dynamic";
 import Nav from "../components/nav";
 const RemoteTitle = (await import("next1/exposedTitle")).default;
-const _ = await import("lodash");
+
 console.log(RemoteTitle);
 const Home = ({ loaded }) => {
   return (

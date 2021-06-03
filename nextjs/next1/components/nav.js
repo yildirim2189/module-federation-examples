@@ -1,6 +1,6 @@
 import React from "react";
 import Link from "next/link";
-
+import("lodash").then(console.log);
 const links = [
   { href: "https://zeit.co/now", label: "ZEIT" },
   { href: "https://github.com/zeit/next.js", label: "GitHub" },
@@ -8,6 +8,7 @@ const links = [
   link.key = `nav-link-${link.href}-${link.label}`;
   return link;
 });
+console.log(__webpack_share_scopes__);
 
 const Nav = () => (
   <nav>

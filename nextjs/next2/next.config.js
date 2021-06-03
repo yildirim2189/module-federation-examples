@@ -8,8 +8,32 @@ module.exports = {
   future: { webpack5: true },
   webpack: (config, options) => {
     const { buildId, dev, isServer, defaultLoaders, webpack } = options;
+
+    if (!options.isServer) {
+      const originalEntry = config.entry;
+      config.entry = async () => {
+        const eps = await originalEntry();
+        const newEntrys = Object.entries(eps).reduce((acc, [key, value]) => {
+          acc[key] = value;
+
+          if (key === "polyfills") {
+            acc[key] = {
+              import: value,
+              dependOn: "shared",
+              filename: "static/chunks/react.js",
+            };
+          }
+          return acc;
+        }, {});
+        newEntrys["shared"] = ["react", "react-dom"];
+
+        return newEntrys;
+        return eps;
+      };
+    }
+
     const mfConf = {
-      mergeRuntime: true, //experimental
+      mergeRuntime: true,
       name: "next2",
       library: {
         type: config.output.libraryTarget,
@@ -27,10 +51,17 @@ module.exports = {
       exposes: {
         "./nav": "./components/nav",
       },
-      shared: ["lodash"],
+      shared: [
+        {
+          lodash: {
+            singleton: true,
+          },
+        },
+      ],
     };
     config.cache = false;
     withModuleFederation(config, options, mfConf);
+
     if (!isServer) {
       config.output.publicPath = "http://localhost:3001/_next/";
     }
