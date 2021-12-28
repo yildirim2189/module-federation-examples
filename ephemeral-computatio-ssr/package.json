@@ -1,0 +1,32 @@
+{
+  "name": "module-federation-ssr",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "concurrently \"npm run buildHost\" \"npm run startHost\" \"npm run buildRemote\" \"npm run startRemote\"",
+    "buildHost": "webpack --config=hostServer/webpack.config.js -w",
+    "startHost": "nodemon hostServer/public/server/server.js",
+    "buildRemote": "webpack --config=remoteServer/webpack.config.js -w",
+    "startRemote": "nodemon remoteServer/public/server/server.js"
+  },
+  "license": "MIT",
+  "author": {
+    "name": "Pini Tayeb"
+  },
+  "devDependencies": {
+    "@babel/core": "7.15.5",
+    "@babel/polyfill": "7.12.1",
+    "@babel/preset-env": "7.15.6",
+    "@babel/preset-react": "7.14.5",
+    "babel-loader": "8.2.2",
+    "concurrently": "6.2.1",
+    "nodemon": "2.0.13",
+    "lerna": "3.22.1",
+    "webpack": "5.58.0",
+    "webpack-cli": "4.8.0"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "react": "^16.13.0",
+    "react-dom": "^16.13.0"
+  }
+}

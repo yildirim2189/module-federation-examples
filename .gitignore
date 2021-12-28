@@ -112,3 +112,5 @@ buildServer
 
 # angular cache
 .angular
+/edge-ssr/node_modules/
+/edge-ssr/dist/

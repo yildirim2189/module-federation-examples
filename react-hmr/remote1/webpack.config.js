@@ -8,18 +8,32 @@ module.exports = {
   entry: "./src/index",
   mode: "development",
   devtool: "source-map",
+  target: 'web',
   optimization: {
     minimize: false,
   },
+  output: {
+    publicPath: "auto",
+    clean: true,
+    chunkFormat:"module",
+    chunkLoading: 'import',
+    environment: { module: true },
+    library: {
+      type: 'module'
+    },
+  },
+  externalsType: 'module',
+  experiments:{outputModule:true},
   devServer: {
     hot: true,
     static: path.join(__dirname, "dist"),
     port: 3001,
     liveReload: false,
-  },
-  output: {
-    publicPath: "auto",
-    clean: true,
+    headers: {
+      "Access-Control-Allow-Origin": "*",
+      "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, PATCH, OPTIONS",
+      "Access-Control-Allow-Headers": "X-Requested-With, content-type, Authorization"
+    }
   },
   module: {
     rules: [
@@ -38,18 +52,21 @@ module.exports = {
     new ModuleFederationPlugin({
       name: "remote1",
       filename: "remoteEntry.js",
+      library:{type:'module'},
       exposes: {
         "./Button": "./src/Button",
         "./Heading": "./src/Heading",
       },
+      remoteType:"module",
       remotes: {
-        libs: "libs@[libsUrl]/remoteEntry.js",
+        libs: "import('http://localhost:3002/remoteEntry.js')",
       },
     }),
-    new ExternalTemplateRemotesPlugin(),
+    // new ExternalTemplateRemotesPlugin(),
     new HtmlWebpackPlugin({
       template: "./public/index.html",
       chunks: ["main"],
+      scriptLoading: 'module'
     }),
     new ReactRefreshWebpackPlugin({
       exclude: [/node_modules/, /bootstrap\.js$/],
