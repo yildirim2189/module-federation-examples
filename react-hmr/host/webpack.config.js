@@ -57,8 +57,24 @@ module.exports = {
       remoteType: 'module',
       library:{type:"module"},
       remotes: {
-        remote1: "promise new Promise(res=>import('http://localhost:3001/remoteEntry.js').then(res))",
-        libs: "promise new Promise(res=>import('http://localhost:3002/remoteEntry.js').then(console.log))",
+        remote1: `promise new Promise(resolve => {
+      const script = document.createElement('script')
+      script.innerHTML = 'import * as theRemote from "http://localhost:3001/remoteEntry.js"; console.log(JSON.stringify({})); console.log(theRemote);'
+      // script.src = "http://localhost:3001/remoteEntry.js"
+      script.type = "module"
+ 
+      // inject this script with the src set to the versioned remoteEntry.js
+      document.head.appendChild(script);
+    })`,
+        libs: `promise new Promise(resolve => {
+      const script = document.createElement('script')
+      script.src = "http://localhost:3002/remoteEntry.js"
+      script.type = "module"
+      // inject this script with the src set to the versioned remoteEntry.js
+      document.head.appendChild(script);
+    })`,
+        // remote1: "import('http://localhost:3001/remoteEntry.js')",
+        // libs: "import('http://localhost:3002/remoteEntry.js')",
       },
     }),
     new ExternalTemplateRemotesPlugin(),

@@ -19,7 +19,7 @@ module.exports = {
     chunkLoading: 'import',
     environment: { module: true },
     library: {
-      type: 'module'
+      type: 'module',
     },
   },
   externalsType: 'module',
@@ -59,7 +59,13 @@ module.exports = {
       },
       remoteType:"module",
       remotes: {
-        libs: "import('http://localhost:3002/remoteEntry.js')",
+        libs: `promise new Promise(resolve => {
+      const script = document.createElement('script')
+      script.src = "http://localhost:3002/remoteEntry.js"
+      script.type = "module"
+      // inject this script with the src set to the versioned remoteEntry.js
+      document.head.appendChild(script);
+    })`,
       },
     }),
     // new ExternalTemplateRemotesPlugin(),

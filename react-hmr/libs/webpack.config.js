@@ -28,8 +28,7 @@ module.exports = {
   plugins: [
     new ModuleFederationPlugin({
       name: "libs",
-      library: {type: 'module'},
-      remoteType:"module",
+      library: {type: 'global'},
       filename: "remoteEntry.js",
       exposes: {
         "./react": "react",
