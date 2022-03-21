@@ -1,0 +1,6 @@
+name: angular11-microfrontends-scully
+packages:
+  - path: projects/mdmf-product
+  - path: projects/mdmf-profile
+  - path: projects/mdmf-shared
+  - path: projects/mdmf-shell

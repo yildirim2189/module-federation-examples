@@ -7,7 +7,10 @@
     "clean": "lerna run --scope @redux-reducer-injection/* --parallel clean"
   },
   "devDependencies": {
-    "lerna": "3.22.1",
-    "concurrently": "7.0.0"
+    "concurrently": "7.0.0",
+    "lerna": "3.22.1"
+  },
+  "dependencies": {
+    "@appland/appmap-agent-js": "^10.0.1"
   }
 }

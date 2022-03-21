@@ -1,0 +1,4 @@
+name: nextjs-react
+packages:
+  - path: host-app
+  - path: remote-app

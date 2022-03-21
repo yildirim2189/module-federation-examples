@@ -8,5 +8,8 @@
   "devDependencies": {
     "lerna": "3.22.1"
   },
-  "license": "CC BY-NC-ND 4.0"
+  "license": "CC BY-NC-ND 4.0",
+  "dependencies": {
+    "@appland/appmap-agent-js": "^10.0.1"
+  }
 }

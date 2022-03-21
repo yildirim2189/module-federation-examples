@@ -19,5 +19,8 @@
   "homepage": "https://github.com/anderlaw/react-webpack-MF#readme",
   "devDependencies": {
     "lerna": "4.0.0"
+  },
+  "dependencies": {
+    "@appland/appmap-agent-js": "^10.0.1"
   }
 }

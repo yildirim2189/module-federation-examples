@@ -8,5 +8,8 @@
   },
   "devDependencies": {
     "lerna": "3.22.1"
+  },
+  "dependencies": {
+    "@appland/appmap-agent-js": "^10.0.1"
   }
 }

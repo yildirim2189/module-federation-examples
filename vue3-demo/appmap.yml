@@ -1,0 +1,6 @@
+name: vue3-demo
+packages:
+  - path: home/dist
+  - path: layout/dist
+  - path: home
+  - path: layout

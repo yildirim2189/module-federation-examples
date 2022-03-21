@@ -1,0 +1,5 @@
+name: angular11-microfrontends-ngxs
+packages:
+  - path: projects/mdmf-profile
+  - path: projects/mdmf-shared
+  - path: projects/mdmf-shell

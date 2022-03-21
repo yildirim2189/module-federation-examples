@@ -1,0 +1,4 @@
+name: angular12-microfrontends
+packages:
+  - path: projects/mdmf-profile
+  - path: projects/mdmf-shell

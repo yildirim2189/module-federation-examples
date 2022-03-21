@@ -1,0 +1,4 @@
+name: dashboard-example
+packages:
+  - path: app1
+  - path: app2
